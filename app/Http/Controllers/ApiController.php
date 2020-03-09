@@ -25,10 +25,10 @@ class ApiController extends Controller
 
     public function createPlaceWager(Request $request) {
         $validator = Validator::make($request->all(), [
-            'total_wager_value' => 'required|gt:0',
-            'odds' => 'required|gt:0',
-            'selling_percentage' => 'required|gte:1|lte:100',
-            'selling_price' => 'required|gt:0'
+            'total_wager_value' => 'required|integer|gt:0',
+            'odds' => 'required|integer|gt:0',
+            'selling_percentage' => 'required|integer|gte:1|lte:100',
+            'selling_price' => 'required|numeric|gt:0'
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->messages()], 422);
@@ -52,7 +52,7 @@ class ApiController extends Controller
 
     public function createBuyWager(Request $request, $wager_id) {
         $validator = Validator::make($request->all(), [
-            'buying_price' => 'required|gt:0',
+            'buying_price' => 'required|numeric|gt:0',
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->messages()], 422);

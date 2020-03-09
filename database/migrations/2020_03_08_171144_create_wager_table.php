@@ -21,7 +21,7 @@ class CreateWagerTable extends Migration
             $table->decimal('current_selling_price',18,2)->nullable();
             $table->decimal('selling_price',18,2);
             $table->integer('percentage_sold')->nullable();
-            $table->decimal('amount_sold')->nullable();
+            $table->decimal('amount_sold',18,2)->nullable();
             $table->timestamp('placed_at');
         });
     }

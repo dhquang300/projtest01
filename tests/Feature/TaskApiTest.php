@@ -38,25 +38,25 @@ class TaskApiTest extends TestCase
         ->assertJson(['data' => $formData])
         ;
     }
-//     public function test_can_create_buy()
-//     {
-//         $formData =[
-//             'buying_price' => 120000,
-//             'wager_id' => 3,
-//             'bought_at' => date('Y-m-d H:i:s')
-//         ];
+    public function test_can_create_buy()
+    {
+        $formData =[
+            'buying_price' => 120000,
+            'wager_id' => 3,
+            'bought_at' => date('Y-m-d H:i:s')
+        ];
     
-//         $this->json('POST',route('buy'),$formData)
-//         ->assertStatus(201)
-//         ->assertJson(['data' => $formData])
-//         ;
-//     }
+        $this->json('POST',route('buy'),$formData)
+        ->assertStatus(201)
+        ->assertJson(['data' => $formData])
+        ;
+    }
     
-//     public function test_can_list_wager()
-//     {
-//         $wagers = factory(Wager::class, 3)->make();
-//         $this->get(route('wagers'))
-//         ->assertJson(['data'=> $wagers->toArray()])
-//         ->assertStatus(200);
-//     }
+    public function test_can_list_wager()
+    {
+        $wagers = factory(Wager::class, 3)->make();
+        $this->get(route('wagers'))
+        ->assertJson(['data'=> $wagers->toArray()])
+        ->assertStatus(200);
+    }
 }
